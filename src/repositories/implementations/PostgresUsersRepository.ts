@@ -10,7 +10,24 @@ export class PostgresUsersRepository implements IUsersRepository {
     return user;
   }
 
-  async save(user: User): Promise<void> {
+  async create(user: User): Promise<User> {
     this.users.push(user);
+
+    return this.users[this.users.length -1];
+  }
+
+  async findById(id: string): Promise<User> {
+    const user = this.users.find(user => user.id === id);
+
+    return user;
+  }
+
+  async list(): Promise<User[]> {
+    return this.users;
+  }
+
+  async delete(id: string): Promise<void> {
+    const index = this.users.findIndex(user => user.id === id);
+    this.users.splice(index, 1);
   }
 }
