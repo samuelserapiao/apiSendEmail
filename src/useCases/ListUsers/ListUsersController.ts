@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { ListUserUseCase } from "./ListUsersUseCase";
+import { ListUsersUseCase } from "./ListUsersUseCase";
 
 export class ListUserController {
   constructor(
-    private listUserUseCase: ListUserUseCase,
+    private listUserUseCase: ListUsersUseCase,
   ) { }
 
   async handle(request: Request, response: Response): Promise<Response> {
